@@ -7,6 +7,9 @@ $primary-color: white
 $secondary-color: #13459c
 $background-color: #cfedfc 
 
+$mobile-root-fs: 36px
+$laptop-root-fs: 20px
+
 $fade-time: 0.1s
 
 @font-face
@@ -31,7 +34,7 @@ $fade-time: 0.1s
 
 
 html
-	font-size: 20px	
+	font-size: $mobile-root-fs
 
 html, body
 	margin: 0
@@ -96,3 +99,6 @@ p
 	100%
 		opacity: 100
 	
+@media (min-width: 1024px)
+	html
+		font-size: $laptop-root-fs
