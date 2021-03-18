@@ -10,6 +10,7 @@ var error = 0;
 var words = ["world", "about", "again", "heart", "pizza", "water", "happy", "sixty"];
 var recall = false;
 var reverseword = false;
+var init_click = true;
 setInterval(update_time, timestep);
 var memword = words[Math.floor(Math.random() * 7)];
 var reverse = memword.split("").reverse().join("");
@@ -26,8 +27,15 @@ for (i = 0; i < 9; i++) {
     results[i] = (values[0][i] - values[1][i]);
     // document.write(results[i] + " ");
 }
-function myFunction() {
+function buttonClick() {
     var anim = "fade-animation";
+
+    // change styling after started
+    if(init_click){
+        $('#myInput').removeAttr("placeholder");
+        $('#myBtn').text("SUBMIT");
+        init_click = false;
+    }
 
     // reapply anim styling if previously animated
     if($('#calc').hasClass(anim)){
@@ -45,6 +53,7 @@ function myFunction() {
         document.getElementById('myInput').value = "";
         $('#calc').text(values[0][score] + "-" + values[1][score]);
         
+
         if (results[score - 1] != input) {
             errors += 1;
         }

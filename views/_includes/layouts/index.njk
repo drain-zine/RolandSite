@@ -6,16 +6,11 @@
 
 <main class="flex justify-center items-center">
   <div class="flex flex-col  media-card absolute text-center px-20 rounded-xl shadow-xxl transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-  {# <div class="media-card flex flex-col text-center"> #}
+
     <div class="card-heading flex-1">
       <h1 class="primary-heading-font">{{gameTitle}}</h3>
       <p class="primary-paragraph-font">{{gameInstructions}}</p>
     </div>
-
-    {# <div class="input-form flex-1 justify-center pt-8 pb-4">
-      <input id="myInput" value="">
-      <button id="myBtn" onclick="myFunction()">{{buttonText}}</button>
-    </div> #}
 
     <div class="equation-container flex-1 pt-8">
       <p id="calc">PRESS START WHEN READY</p>
@@ -23,8 +18,8 @@
 
     <div class="input-form flex-1 justify-center pt-8 pb-1">
       <form onsubmit="return false" class="m-4 flex justify-center">
-        <input id="myInput" class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"/>
-        <button id="myBtn"  onclick="myFunction()" class="px-8 rounded-r-lg bg-yellow-400  text-gray-800 font-bold p-4 uppercase border-yellow-500 border-t border-b border-r">{{buttonText}}</button>
+        <input id="myInput" class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" placeholder="PRESS START"/>
+        <button id="myBtn"  onclick="buttonClick()" class="px-8 rounded-r-lg primary-bg-color  text-gray-800 font-bold p-4 uppercase  border-t border-b border-r">START</button>
       </form>
     </div>
 
