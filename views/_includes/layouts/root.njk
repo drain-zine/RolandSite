@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns#">
+    <head>
+        {% include "partials/head.njk" %}
+
+        <link rel="stylesheet" type="text/css" href="/styles/tailwind.css" />
+        <link rel="stylesheet" type="text/css" href="/styles/index.css" />
+    
+    </head>
+
+    <body class="{{background}}">
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>
