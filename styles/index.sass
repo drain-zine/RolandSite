@@ -1,335 +1,95 @@
 /* styling vars */
 
-$primary-font-stack: helvetica
-$secondary-font-stack: serif
+$primary-heading-font: 'Canela'
+$primary-paragraph-font: 'Lato'
 
 $primary-color: white
-$secondary-color: red
-$tertiary-color: DarkRed
-$background-color: #6dc4c7 /*#d8e4bc*/
+$secondary-color: #13459c
+$background-color: #cfedfc 
 
-.trolley
-	background-image: url("/res/static/trolley.png")
-	background-repeat: repeat
-.vellum
-	background-image: url("/res/static/vellum.jpg")
-	background-repeat: repeat	
+$fade-time: 1s
 
-// Dimensions
-$dot-size: 1px
-$dot-space: 22px
-
-$header-padding-y: 2.2rem
-$header-padding-x: 1rem
-$grid-line-size: 0.05rem
-$content-margin: 0.1rem
-$hover-transition-time: 0.25s
-
-/* font face declarations */
-@font-face 
-	font-family: 'Favorit Extended'
-	font-style: normal
+@font-face
+	font-family: 'Canela'
+	src: url('/res/fonts/Canela-Regular.ttf')
 	font-weight: normal
-	src: local('Favorit Extended'), url('/res/fonts/Favorit-RegularExtended.otf')
+	font-size: normal 
 
-@font-face 
-	font-family: 'Acumin Pro'
-	font-style: normal
+@font-face
+	font-family: 'Lato'
+	src: url('/res/fonts/Lato-Regular.ttf')
 	font-weight: normal
-	src: local('Acumin Pro'), url('../../../res/fonts/Acumin-RPro.woff') format('woff')
+	font-size: normal 
 
-@font-face 
-	font-family: 'Acumin Pro Italic'
-	font-style: normal
-	font-weight: normal
-	src: local('Acumin Pro Italic'), url('../../../res/fonts/Acumin-ItPro.woff') format('woff')
+.primary-heading-font
+	font-family: $primary-heading-font
 
-@font-face 
-	font-family: 'Acumin Pro Bold'
-	font-style: normal
-	font-weight: normal
-	src: local('Acumin Pro Bold'), url('../../../res/fonts/Acumin-BdPro.woff') format('woff')
-       
-@font-face 
-	font-family: 'Acumin Pro Bold Italic'
-	font-style: normal
-	font-weight: normal
-	src: local('Acumin Pro Bold Italic'), url('../../../res/fonts/Acumin-BdItPro.woff') format('woff')
+.primary-paragraph-font
+	font-family: $primary-paragraph-font 
+
+html
+	font-size: 20px	
 
 html, body
 	margin: 0
 	min-height: 100%
+	background-color: $background-color
 
-body 
-	/*background: linear-gradient(90deg, $background-color ($dot-space - $dot-size), transparent 1%) center, linear-gradient($background-color ($dot-space - $dot-size), transparent 1%) center, $secondary-color */
-	/* background-size: $dot-space $dot-space */
-
-header
-	display: flex
-	height: 40vh
-
-	nav
-		display: flex
-		flex-direction: column
-
-main
-	display: flex
-
-	.stage
-		display: flex
-		justify-content: center
-		width: 50%
-
-	.menu
-		width: 50%
-
-
-.textContainer
-	// Style
-	background-color: black
-	color: white
-	font-family: $primary-font-stack
-
-	// Display
-	display: flex
-	align-items: flex-start
-	
-.flex-grid
-	display: flex
-	flex-wrap: wrap
-	/*justify-content: space-between*/
-
-	.item	
-		flex: 0 32%
-		height: 100px
-		margin-bottom: 8rem
-	
-	img
-		height: 12rem !important
-
-	svg
-		width: 125% !important
-		height: auto !important
-
-
-.item
-	display: flex
-	
-	justify-content: center
-	align-items: center
-
-	cursor: pointer
-	position: relative // for blobs
-
-	img
-		height: 30rem
-	svg
-		height: 40rem
-		position: absolute
-		
-
-.dropdown
-	display: flex
-	flex-direction: column
-	justify-content: center
-	align-items: center
-
-	.dropdown-btn
-		display: flex
-		justify-content: center
-		align-items: center
-	.dropdown-content
-		/*display: none*/
-		background-color: none
-		visibility: hidden
-
-
-.dropdown:hover .dropdown-content
-	visibility: visible 
-
-.dropdown:hover .dropdown-btn
-	img
-		transform: rotate(90deg)
-
-.dropdown-btn:hover
-	img
-		transform: rotate(90deg)
-
-#expansionContainer
-	height: 800px
-
-.btn-secondary
-	background-color: $secondary-color
-.btn-secondary:hover
-	cursor: pointer
-	background-color: $tertiary-color
-
-.blot-portrait
-	position: relative
+.body
 	overflow: hidden
-	border-radius: 50%
-	margin: 0px auto
-	//background-color: white
-
-	img
-		width: 100%
-		height: auto
-
-.blot-portrait:hover, .blot-portrait:active, .blot-portrait.active, svg:hover
-	-webkit-filter: grayscale(100%)
-	filter: grayscale(100%)
-	
-
-.blot-portrait:hover
-	//background-color: $secondary-color
-	//transition: background-color 0.5s ease
-
-.blot-portrait:active, .blot-portrait.active
-	//background-color: $tertiary-color
-.contentWrapper
-	svg
-		position: absolute
-		width: 100%
-		top: 0%
-		transform: translate(-50%,-25%)
-.contentBody
-	//background-color: black
-	color: black
-	text-align: center
-	padding: 1rem
-	font-family: $primary-font-stack
-
-	top: 10%
-	
-	p
-		margin-top: 0
-
-
-.puzzle-container
-	display: flex
-	flex-direction: row
-	flex-wrap: wrap
-
-	width: 33.5%
-	
-	h1
-		z-index: 0
-		align-self: center
-		position: absolute
-		left: 50%
-		transform: translateX(-50%)
-		width: 100%
-
-	.background
-		width: 50vw
-		z-index: 1
-		
-
-	justify-content: center
-
-	.link
-		position: absolute
-		z-index: 2
-		height: fit-content
-
-		p
-			font-family: $primary-font-stack
-			color: white
-
-	.l1
-		top: 37%
-		left: 25%
-	.l2
-		top: 35%
-		left: 63%
-	.l3
-		top: 56%
-		left: 15%
-	.l4
-		top: 53%
-		left: 56%
-	
-
-	.piece
-		height: fit-content
-		position: absolute
-
-	
-		z-index: 3
-
-	.p1
-		width: 45% //450px
-		img
-			width: 100%
-			
-			height: auto
-
-		top: 28.3%
-		left: 9.46%
-
-	.p2
-		width: 39.1% //390px
-		img
-			width: 100%
-			height: auto
-
-		top: 28.5%
-		left: 51.4%
-
-	.p3
-		width: 44.1% //450px
-		img
-			width: 100%
-			height: auto
-
-		top: 45.2%
-		left: 1.8%
-
-	.p4
-		width: 55.2% // 550px
-		img
-			width: 100%
-			height: auto
-			
-		top: 47.3%
-		left: 38%
-
-.hiddenClue
-	color: white
 	position: absolute
-	z-index: 0
-	top: 6%
-	width: 50%
-	left: -5%
+	width: 100%
+	height: 100%
+	display: flex
+	justify-content: center 
+	align-items: center 
 
-a
+.media-card
 	color: $primary-color
-	text-decoration: none
-
-a:visited
-	color: $primary-color
-	text-decoration: none
-
-a:hover
-	color: $secondary-color
-	text-decoration: none
-
-a:active
-	color: $tertiary-color
-	text-decoration: none
-
-.primary-font-stack
-	font-family: $primary-font-stack
-.secondary-font-stack
-	font-family: $secondary-font-stack
-.primary-color
-	color: $primary-color
-
-.bc-secondary
 	background-color: $secondary-color
-.border-spacing-2
-	border-spacing: 2rem
-.height-min-content
-	height: min-content
+
+p
+	font-family: $primary-paragraph-font 
+
+.shadow-xxl
+	--tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25)
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
 
 
+.fade-animation
+	animation: fadeIn ease $fade-time
+	-webkit-animation: fadeIn ease $fade-time
+	-moz-animation: fadeIn ease $fade-time
+	-o-animation: fadeIn ease $fade-time
+	-ms-animation: fadeIn ease $fade-time
+
+@keyframes fadeIn
+	0%
+		opacity: 0
+	100%
+		opacity: 100
+
+@-webkit-keyframes fadeIn
+	0%
+		opacity: 0
+	100%
+		opacity: 100
+
+@-moz-keyframes fadeIn
+	0%
+		opacity: 0
+	100%
+		opacity: 100
+
+@-o-keyframes fadeIn
+	0%
+		opacity: 0
+	100%
+		opacity: 100
+
+@-ms-keyframes fadeIn
+	0%
+		opacity: 0
+	100%
+		opacity: 100
+	
