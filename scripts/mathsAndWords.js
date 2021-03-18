@@ -27,11 +27,24 @@ for (i = 0; i < 9; i++) {
     // document.write(results[i] + " ");
 }
 function myFunction() {
+    var anim = "fade-animation";
+
+    // reapply anim styling if previously animated
+    if($('#calc').hasClass(anim)){
+        var el     = $('#calc'),  
+        newone = el.clone(true);   
+        el.before(newone);  
+        $("." + el.attr("class") + ":last").remove();
+    }
+
+    $('#calc').addClass("fade-animation");
+
     click_time.push(time)
     if (score < 10) {
         input = parseInt(document.getElementById('myInput').value)
         document.getElementById('myInput').value = "";
-        document.getElementById('calc').innerHTML = values[0][score] + "-" + values[1][score];
+        $('#calc').text(values[0][score] + "-" + values[1][score]);
+        
         if (results[score - 1] != input) {
             errors += 1;
         }
