@@ -15,7 +15,55 @@ setInterval(update_time, timestep);
 var memword = words[Math.floor(Math.random() * 7)];
 var reverse = memword.split("").reverse().join("");
 
-alert("Your word is: " + memword);
+
+const timer = ms => new Promise(res => setTimeout(res, ms));
+
+const displayAlert = async (alertText, alertTime, init=false) => {
+    const promptIns = document.getElementById("promptIns");
+    const formCard = document.getElementById("formCard");
+    const alertCard = document.getElementById("alertCard");
+    const initPrompt = document.getElementById("initPrompt");
+
+    // toggle init text logic
+    if(init){
+        initPrompt.classList.remove("hidden");
+        initPrompt.classList.add("block");
+    }else{
+        if(initPrompt.classList.contains("block")){
+            initPrompt.classList.remove("block");
+        }
+
+        if(!initPrompt.classList.contains("hidden")){
+            initPrompt.classList.add("hidden");
+        }
+    }
+
+    const hidden_z = "z-0";
+    const active_z = "z-10";
+    
+    console.log("test: " + alertText)
+    promptIns.innerHTML = alertText;
+
+    // display alert boxW
+    formCard.classList.remove(active_z);
+    formCard.classList.add(hidden_z);
+
+    alertCard.classList.remove(hidden_z);
+    alertCard.classList.add(active_z);
+
+    // use as setTimout is non blocking
+     
+     await timer(alertTime);
+
+    // wait for n times
+    formCard.classList.remove(hidden_z);
+    formCard.classList.add(active_z);
+
+    alertCard.classList.remove(active_z);
+    alertCard.classList.add(hidden_z);
+
+}
+displayAlert("Your word is: " + memword, 4000, true);
 
 for (j = 0; j < 2; j++) {
     for (i = 0; i < 10; i++) {
@@ -59,7 +107,7 @@ function buttonClick() {
         }
     }
     if (score == 10) {
-        document.getElementById('calc').innerHTML = "Please spell the new word";
+        document.getElementById('calc').innerHTML = "Please spell the word";
     }
     if (score == 11) {
         input = (document.getElementById('myInput').value)
@@ -87,28 +135,32 @@ function buttonClick() {
 function update_time() {
     time += timestep;
 }
-function end() {
+const end = async() => {
     var t = 0;
+    var alertText = '';
+
+    var alertTime = 3000;
     t = (click_time[10] - click_time[0]
     );
 
-    alert("You made: " + errors + " errors and it took you " + t / 1000 + " seconds");
+    alertText = "You made: " + errors + " errors and it took you " + t / 1000 + " seconds.\n";
+
     if (reverseword){
-        alert("You sucesfully recalled the word and reversed it");
+        alertText += "You sucesfully recalled the word and reversed it";
+        console.log("in reverseword: " + alertText);
+        
     }
     if (!recall){
-        alert("You didnt manage to recall the word")
+        alertText += "You didnt manage to recall the word";
+        console.log("in idiot: " + alertText);
     }
     if (recall && !reverseword){
-        alert("You managed to recall the word but couldnt reverse it")
+        alertText += "You managed to recall the word but couldnt reverse it";
+        console.log("in non reverseword: " + alertText);
     }
 
+    displayAlert(alertText, alertTime);
+    await timer(alertTime);
+    
+    location.reload();
 }
-// Get the input field
-var input = document.getElementById("myInput");
-input.addEventListener("keyup", function (event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        document.getElementById("myBtn").click();
-    }
-});

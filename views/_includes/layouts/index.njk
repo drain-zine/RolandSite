@@ -5,7 +5,8 @@
 
 
 <main class="flex justify-center items-center">
-  <div class="flex flex-col  media-card absolute text-center px-20 rounded-xl shadow-xxl transform -translate-x-1/2 top-0 lg:top-1/2 lg:-translate-y-1/2 left-1/2 mt-4 lg:mt-0">
+  {# Display form #}
+  <div id="formCard" class="flex flex-col z-10 media-card absolute text-center px-20 rounded-xl shadow-xxl transform -translate-x-1/2 top-0 lg:top-1/2 lg:-translate-y-1/2 left-1/2 mt-4 lg:mt-0">
 
     <div class="card-heading flex-1">
       <h1 class="primary-heading-font">{{gameTitle}}</h3>
@@ -27,6 +28,20 @@
       <p id="output">ANSWER HERE</p>
     </div>
   </div>
+    {# alert box #}
+    <div id="alertCard" class="flex flex-col z-0 media-card absolute text-center px-10 rounded-xl shadow-xxl transform -translate-x-1/2 top-0 lg:top-1/2 lg:-translate-y-1/2 left-1/2 mt-4 lg:mt-0">
+
+        <div class="card-heading flex-1">
+          <h1 class="primary-heading-font text-2xl">{{gameTitle}}</h1>
+          <p class="primary-paragraph-font hidden text-lg" id="initPrompt">{{promptText}}</p>
+        </div>
+
+        <div class="equation-container flex-1 pt-8">
+          <p id="promptIns"></p>
+        </div>
+
+
+    </div>
 </main>
 
 <script src="/scripts/mathsAndWords.js"></script>
